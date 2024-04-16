@@ -1,0 +1,33 @@
+html {
+    box-sizing: border-box;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+nav{
+    background-color: lightblue;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    padding:10px;
+}
+
+li {
+    line-height: 1;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+nav a {
+    color: #3e3e3e;
+    display: block;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0.5em;
+    text-decoration: none;
+}
