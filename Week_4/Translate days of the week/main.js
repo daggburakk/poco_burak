@@ -1,27 +1,30 @@
 
-let translateDay = prompt("Enter day's name:")
+let input = prompt("Enter day's name:");
+let translatedDay;
 
-switch(translateDay){
+switch(input){
   case "Monday":
-   alert("Lundi") 
+   translatedDay = "Lundi"; 
    break;
   case "Tuesday":
-    alert("Mardi")
+    translatedDay = "Mardi"; 
     break;
   case "Wednesday":
-    alert("Mercredi") 
+    translatedDay = "Mercredi"; 
     break;
   case "Thursday":
-    alert("Jeudi")
+    translatedDay = "Jeudi"; 
     break;
   case "Friday":
-    alert("Vendredi")
+    translatedDay = "Vendredi"; 
     break;
   case "Saturday":
-    alert("Samedi")
+    translatedDay = "Samedi"; 
     break;
   case "Sunday":
-    alert("Dimanche")
+    translatedDay = "Dimanche";
+    break;
     default:
-        translateDay=alert("Error!!!")          
+        input=alert("Error!!!")          
 }
+    alert(translatedDay)
