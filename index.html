@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Profiles</title>
+    <style>
+        /* Profil kartlarını dış kutuya yerleştir */
+        #profiles-container {
+            display: flex;
+            flex-wrap: wrap; /* Eğer kutular sığmıyorsa bir sonraki satıra geç */
+            justify-content: space-around; /* Kutuları yatayda ortala */
+        }
+
+        /* CSS ile profil kartlarını stilize edebilirsiniz */
+        .profile-card {
+            width: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer; /* Fareyi tıklama işareti olarak değiştir */
+        }
+        .profile-image {
+            width: 100%;
+        }
+
+        /* Modal için stiller */
+        .modal {
+            display: none; /* Başlangıçta gizli */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="profiles-container"></div>
+
+    <!-- Modal için HTML -->
+    <div class="modal" id="modal">
+        <h2 id="modal-name"></h2>
+        <p id="modal-age"></p>
+        <p id="modal-eye-color"></p>
+        <p id="modal-hobby"></p>
+        <!-- Diğer özgeçmiş bilgilerini buraya ekleyebilirsiniz -->
+    </div>
+
+    <script>
+        // Öğrenci verileri
+        const students = [
+            { name: "John Doe", age: 20, eyeColor: "blue", hobby: "Soccer", imageUrl: "john_doe.jpg" },
+            { name: "Taha", age: 25, eyeColor: "brown", hobby: "Photography", imageUrl: "Taha.jpg" },
+            // Diğer öğrencilerin verileri buraya eklenebilir
+        ];
+
+        // Profil kartlarını oluşturma fonksiyonu
+        function createProfileCard(student) {
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+
+            const image = document.createElement('img');
+            image.src = student.imageUrl;
+            image.className = 'profile-image';
+            card.appendChild(image);
+
+            // Profil kartı tıklandığında daha fazla bilgi gösterme
+            card.addEventListener('click', function() {
+                showModal(student);
+            });
+
+            return card;
+        }
+
+        // Modal penceresini gösteren fonksiyon
+        function showModal(student) {
+            const modal = document.getElementById('modal');
+            const modalName = document.getElementById('modal-name');
+            const modalAge = document.getElementById('modal-age');
+            const modalEyeColor = document.getElementById('modal-eye-color');
+            const modalHobby = document.getElementById('modal-hobby');
+
+            modalName.textContent = `Name: ${student.name}`;
+            modalAge.textContent = `Age: ${student.age}`;
+            modalEyeColor.textContent = `Eye Color: ${student.eyeColor}`;
+            modalHobby.textContent = `Hobby: ${student.hobby}`;
+
+            modal.style.display = 'block'; // Modal penceresini görünür yap
+        }
+
+        // Sayfayı yüklerken profil kartlarını oluştur
+        const profilesContainer = document.getElementById('profiles-container');
+        students.forEach(student => {
+            const profileCard = createProfileCard(student);
+            profilesContainer.appendChild(profileCard);
+        });
+    </script>
+</body>
+</html>
