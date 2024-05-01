@@ -1,0 +1,9 @@
+Input:["currentAge", "retirementAge"]
+OutPut:["yearsLeft","yearOfRetirement"]
+
+1. Read current age, desired retirement age,
+2. Validate input data:
+   a. If current age >= desired retirement age, display error message and exit
+   b. If any numerical input is negative, display error message and exit
+3. Calculate years until retirement: desired retirement age - current age
+4. Display age at retirement, years until retirement. 
